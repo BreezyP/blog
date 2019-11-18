@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { fetchPosts } from "../actions";
+import { fetchPostsAndUsers } from "../actions";
 import UserHeader from "./UserHeader";
 import { Grid, Paper, Typography } from "@material-ui/core";
 
@@ -10,7 +10,7 @@ class PostList extends React.Component{
 
 
     componentDidMount() {
-        this.props.fetchPosts();
+        this.props.fetchPostsAndUsers();
     }
 
     renderList() {
@@ -25,7 +25,7 @@ class PostList extends React.Component{
                         <Grid container
                               direction="row"
                               justify="center"
-                              spacing={3}>
+                              spacing={5}>
                             <Grid item xs={6}>
                                 <Paper  style={{marginBottom: 10, padding: 30}}>
                                     <Typography variant="h5" component="h3">
@@ -68,4 +68,4 @@ const mapStateToProps = state => {
     return { posts: state.posts };
 };
 
-export default connect(mapStateToProps, { fetchPosts: fetchPosts } )(PostList);
+export default connect(mapStateToProps, { fetchPostsAndUsers: fetchPostsAndUsers } )(PostList);
